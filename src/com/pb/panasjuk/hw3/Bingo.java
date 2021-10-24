@@ -18,7 +18,7 @@ public class Bingo {
             int y = sc.nextInt(); //То что ввел пользователь.
             counter++;
 
-        //Выход из игры
+    //Выход из игры
         if (y >= 101) {
             break;
         }
