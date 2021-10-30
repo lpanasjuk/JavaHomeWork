@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-
 public class Anagram {
+
 //метод, убирающий пробелы и знаки препинания
     public static String repl(String str) {
         return str.toLowerCase().replaceAll("[^\\p{L}]", "");

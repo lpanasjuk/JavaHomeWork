@@ -1,6 +1,7 @@
 package com.pb.panasjuk.hw4;
 import java.util.Scanner;
 
+
 public class CapitalLetter {
 
 //метод, который возвращает слово с заглавной первой буквой
