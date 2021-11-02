@@ -91,7 +91,7 @@ public class Reader {
 
 
 //второй метод takeBook()
-    public void takeBook(String fullName, String... denominations) {
+    public void takeBook(String... denominations) {
         System.out.print(fullName + " взял книги: ");
 
         for(int i = 0; i < denominations.length; i++) {
@@ -122,7 +122,7 @@ public class Reader {
 
 
 //первый метод returnBook()
-    public void returnBook(String fullName, int bookCount) {
+    public void returnBook(int bookCount) {
         System.out.println(fullName + " вернул " + bookCount + " книги");
 
     }
@@ -130,7 +130,7 @@ public class Reader {
 
 
 //второй метод returnBook()
-    public void returnBook(String fullName, String... denominations) {
+    public void returnBook(String... denominations) {
         System.out.print(fullName + " вернул книги: ");
 
         for(int i = 0; i < denominations.length; i++) {

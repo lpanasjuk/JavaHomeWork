@@ -23,7 +23,7 @@ public class Library {
 
 
 //вызываем второй раз метод takeBook()
-        readers[0].takeBook(readers[0].getFullName(), books[0].getDenomination(),
+        readers[0].takeBook(books[0].getDenomination(),
                 books[1].getDenomination(), books[2].getDenomination());
 
 //вызываем третий раз метод takeBook()
@@ -31,10 +31,10 @@ public class Library {
 
 
 //вызываем первый раз метод returnBook()
-        readers[0].returnBook(readers[0].getFullName(), 3);
+        readers[0].returnBook(3);
 
 //вызываем второй раз метод returnBook()
-        readers[0].returnBook(readers[0].getFullName(), books[0].getDenomination(),
+        readers[0].returnBook(books[0].getDenomination(),
                 books[1].getDenomination(), books[2].getDenomination());
 
 //вызываем третий раз метод returnBook()
