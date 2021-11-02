@@ -21,29 +21,30 @@ public class Book {
     }
 
 
+
+//геттеры и сеттеры
     public String getDenomination() {
-        return denomination;
+     return denomination;
     }
 
     public void setDenomination(String denomination) {
-        this.denomination = denomination;
-
+     this.denomination = denomination;
     }
 
     public String getAuthor() {
-        return author;
+     return author;
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+     this.author = author;
     }
 
     public int getYear() {
-        return year;
+     return year;
     }
 
     public void setYear(int year) {
-        this.year = year;
+     this.year = year;
     }
 
 

@@ -4,9 +4,13 @@ import java.util.Arrays;
 
 public class Library {
     public static void main(String[] args) {
-        Reader [] readers = new Reader[1];
+        Reader [] readers = new Reader[3];
         readers[0] = new Reader("Петров В.В.", 1251,
                 "Экономический факультет", "12.05.1988", "0990001133");
+        readers[1] = new Reader("Иванов С.В.", 1252,
+                "Факультет Неорганической химии", "21.01.1990", "0990002244");
+        readers[2] = new Reader("Сидоров А.П.", 1253,
+                "Экономический факультет", "05.10.1992", "0990005566");
 
         Book [] books = new Book[3];
         books[0] = new Book("Приключения", "Иванов И.И.", 2000);
@@ -37,6 +41,35 @@ public class Library {
         book3[2].setAuthor("Гусев К.В.");
         book3[3].setYear(2010);
         */
+
+//вызываем первый раз метод takeBook()
+        readers[0].takeBook(readers[0].getFullName(), 3);
+        readers[0].takeBook(3);
+//вызываем второй раз метод takeBook()
+    //    readers[0].takeBook(readers[0].getFullName(), "Приключения", "Словарь", "Энциклопедия");
+        readers[0].takeBook(readers[0].getFullName(), books[0].getDenomination(),
+                books[1].getDenomination(), books[2].getDenomination());
+
+
+//вызываем третий раз метод takeBook()
+      //  readers[0].takeBook(books[0], books[1], books[2]);
+        readers[0].takeBook(books[0].getDenomination(), books[0].getAuthor(), books[0].getYear(), books[0].getDenomination(), books[0].getAuthor(), books[0].getYear()
+
+//вызываем первый раз метод returnBook()
+        readers[0].returnBook(readers[0].getFullName(), 3);
+//вызываем второй раз метод returnBook()
+      //  readers[0].returnBook(readers[0].getFullName(), "Приключения", "Словарь", "Энциклопедия");
+        readers[0].returnBook(readers[0].getFullName(), books[0].getDenomination(),
+                books[1].getDenomination(), books[2].getDenomination());
+
+
+//вызываем третий раз метод returnBook()
+      //  readers[0].returnBook("");
+
+
+
+
+
 
 //печатаем все книги
 /* Arrays.toString(Object[] a);
