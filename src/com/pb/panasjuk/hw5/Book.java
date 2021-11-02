@@ -1,6 +1,12 @@
 package com.pb.panasjuk.hw5;
 
 public class Book {
+    private static int bookCount = 0;
+    public static int getBookCount() {
+        return bookCount;
+    }
+
+//поля
     private String denomination;
     private String author;
     private int year;
@@ -10,14 +16,15 @@ public class Book {
      this.denomination = denomination;
      this.author = author;
      this.year = year;
+     bookCount++;
  }
 
 //переопределение метода toString()
     public String toString() {
-      return "[Наименование: " + denomination +
-              ", автор книги: " + author +
-              ", год издания: " + year +
-              " г.]";
+      return "" + denomination +
+              " (" + author +
+              " " + year +
+              " г.)";
     }
 
 
@@ -48,15 +55,12 @@ public class Book {
     }
 
 
-    /*
-//метод который будет печатать всю информацию
-    String getInfoBook() {
-        return "[Наименование: " + denomination + ", автор книги: " + author + ", год издания: " + year + " г.]";
+//для получения инфы по всем книгам
+    String getInfo() {
+        return "[Название: " + denomination + ", автор: " + author + ", год издания: "
+                + year + "]";
     }
 
-*/
 
 }
-
-
 
