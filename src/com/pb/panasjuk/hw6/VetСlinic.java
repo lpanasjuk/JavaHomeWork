@@ -32,5 +32,13 @@ public class VetСlinic {
 
 
 
+        Animal[] animals = new Animal[] {anim, dog, cat, horse};
+        System.out.println("Список всех животных: ");
+        for (Animal a: animals) {
+            System.out.println(a.getName());
+        }
+
+
+
     }
 }
