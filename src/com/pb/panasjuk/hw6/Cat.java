@@ -32,7 +32,7 @@ public class Cat extends Animal {
     @Override
     public String toString() {
         return "Котик {" +
-                "игрушка = '" + toys + '\'' +
+                "любимая игрушка = '" + toys + '\'' +
                 '}';
     }
 

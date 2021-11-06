@@ -5,35 +5,40 @@ import java.lang.reflect.Constructor;
 public class VetСlinic {
     public static void main(String[] args) throws Exception{
         Animal anim = new Animal();
+        System.out.println("Что делают наши животные: ");
         anim.setName("Барсук");
-        anim.makeNoise();
         anim.setFood("Ягоды");
-        anim.eat();
         anim.setLocation("В лесу");
+        anim.makeNoise();
+        anim.eat();
+
 
         Dog dog = new Dog();
         dog.setName("Собака");
         dog.setNoise("Гав-гав");
-        dog.makeNoise();
         dog.setFood("Мясо");
-        dog.eat();
         dog.setLocation("В частных домах");
+        dog.makeNoise();
+        dog.eat();
+
 
         Cat cat = new Cat();
         cat.setName("Котик");
         cat.setToys("Клубок ниток");
-        cat.makeNoise();
         cat.setFood("Рыбку");
-        cat.eat();
         cat.setLocation("В квартирах");
+        cat.makeNoise();
+        cat.eat();
+
 
         Horse horse = new Horse();
         horse.setName("Пони");
         horse.setRun("рысью");
-        horse.makeNoise();
         horse.setFood("овёс");
-        horse.eat();
         horse.setLocation("На поляне");
+        horse.makeNoise();
+        horse.eat();
+
 
 
 //массив Animal со всеми животными
@@ -44,6 +49,7 @@ public class VetСlinic {
         }
 
 //проверка toString()
+        System.out.println("Особенности животных: ");
         System.out.println(dog);
         System.out.println(cat);
         System.out.println(horse);
@@ -51,7 +57,7 @@ public class VetСlinic {
 
 
 //рефлексия
-        System.out.println("Отправляем животных к ветеринару");
+        System.out.println("Отправляем животных к ветеринару:");
         Class clazz = Class.forName("com.pb.panasjuk.hw6.Veterinarian");
 
         Constructor treatAnimal = clazz.getConstructor(new Class[] {});
