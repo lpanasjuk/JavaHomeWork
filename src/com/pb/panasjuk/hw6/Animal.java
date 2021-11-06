@@ -5,6 +5,11 @@ public class Animal {
     private String food;
     private String location;
 
+//конструктор
+
+    public Animal() {
+    }
+
 
 //геттеры и сеттеры
 
