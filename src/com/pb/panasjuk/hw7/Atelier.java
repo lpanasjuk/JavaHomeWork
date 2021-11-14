@@ -1,5 +1,7 @@
 package com.pb.panasjuk.hw7;
 
+import com.pb.panasjuk.hw6.Animal;
+
 public class Atelier {
     public static void main(String[] args) {
         //футболка
@@ -29,6 +31,33 @@ public class Atelier {
         tie.setSize("M");
         tie.setPrice(300);
         tie.setColor("Черный");
+
+
+//массив Clothes со всеми видами одежды
+        Clothes[] collection = new Clothes[] {tshirt, pants, skirt, tie};
+        System.out.println("Список всей одежды: ");
+        for (Clothes с: collection) {
+            System.out.println(с.getName());
+        }
+
+
+
+        public static void dressMan(Clothes[] clothes) {
+
+        }
+
+
+        public static void dressWomen(Clothes[] clothes) {
+
+        }
+
+        dressMan(collection);
+        dressWomen(collection);
+
+
+
+
+
 
     }
 }
