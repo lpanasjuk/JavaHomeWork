@@ -14,6 +14,9 @@ public abstract class Clothes {
         this.color = color;
     }
 
+    public Clothes() {
+    }
+
     //геттеры и сеттеры
     public String getName() {
         return name;
@@ -45,5 +48,18 @@ public abstract class Clothes {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+
+    //переопределение метода toString()
+
+    @Override
+    public String toString() {
+        return "Clothes {" +
+                "Тип одежды = '" + name + '\'' +
+                ", размер = " + size +
+                ", цена = " + price +
+                "грн, цвет = '" + color + '\'' +
+                '}';
     }
 }

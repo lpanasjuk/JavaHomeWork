@@ -10,7 +10,8 @@ public enum Size {
     private String description;
     private int euroSize;
 
-    //Создать конструктор принимающий на вход description и euroSize
+
+//Создать конструктор принимающий на вход description и euroSize
     Size(String description, int euroSize) {
         this.description = description;
         this.euroSize = euroSize;

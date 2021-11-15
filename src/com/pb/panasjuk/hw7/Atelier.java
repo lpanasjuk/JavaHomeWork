@@ -1,58 +1,76 @@
 package com.pb.panasjuk.hw7;
 
-import com.pb.panasjuk.hw6.Animal;
+import com.pb.panasjuk.hw7.Clothes;
 
 public class Atelier {
     public static void main(String[] args) {
-        //футболка
-        Tshirt tshirt = new Tshirt();
+        //футболка - Ж
+        Clothes tshirt = new Tshirt();
         tshirt.setName("Футболка");
-        tshirt.setSize("XXS");
+        tshirt.setSize(Size.M);//"M"
         tshirt.setPrice(360);
         tshirt.setColor("Красная");
 
-        //штаны
-        Pants pants = new Pants();
+        //штаны - М
+        Clothes pants = new Pants();
         pants.setName("штаны");
-        pants.setSize("XS");
+        pants.setSize(Size.XS);//"XS"
         pants.setPrice(250);
         pants.setColor("Синие");
 
-        //юбка
-        Skirt skirt = new Skirt();
+        //юбка - Ж
+        Clothes skirt = new Skirt();
         skirt.setName("юбка");
-        skirt.setSize("S");
+        skirt.setSize(Size.S); //"S"
         skirt.setPrice(500);
         skirt.setColor("Красная");
 
-        //галстук
-        Tie tie = new Tie();
+        //галстук - М
+        Clothes tie = new Tie();
         tie.setName("галстук");
-        tie.setSize("M");
+        tie.setSize(Size.XXS); //"XXS"
         tie.setPrice(300);
         tie.setColor("Черный");
 
 
 //массив Clothes со всеми видами одежды
-        Clothes[] collection = new Clothes[] {tshirt, pants, skirt, tie};
+        Clothes[] clothes = new Clothes[]{tshirt, pants, skirt, tie};
         System.out.println("Список всей одежды: ");
-        for (Clothes с: collection) {
-            System.out.println(с.getName());
+        for (Clothes с : clothes) {
+            System.out.println(с);
         }
+        dressWomen(clothes);
+        dressMan(clothes);
 
+    }
+
+//еще двумя статическими методами
+        public static void dressWomen(Clothes[] clothes){
+            System.out.println("Информация о женской одежде: ");
+            for (Clothes сloth: clothes) {
+                if (сloth instanceof WomenClothes) {
+                    WomenClothes womenClothes = (WomenClothes) сloth;
+                    womenClothes.dressWomen();
+
+                }
+
+            }
+        }
 
 
         public static void dressMan(Clothes[] clothes) {
+        System.out.println("Информация о мужской одежде: ");
+        for(Clothes cloth: clothes) {
+            if (cloth instanceof ManClothes) {
+                ManClothes manClothes = (ManClothes) cloth;
+                manClothes.dressMan();
+            }
+        }
 
         }
 
 
-        public static void dressWomen(Clothes[] clothes) {
-
-        }
-
-        dressMan(collection);
-        dressWomen(collection);
+        //  System.out.println(skirt.getSize());
 
 
 
@@ -60,4 +78,4 @@ public class Atelier {
 
 
     }
-}
+

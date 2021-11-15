@@ -1,23 +1,15 @@
 package com.pb.panasjuk.hw7;
 
-public class Tie extends Clothes implements ManClothes, WomenClothes {
+public class Tie extends Clothes implements ManClothes {
+
     @Override
-    public void ManClothes() {
-        System.out.println("Информация о мужской одежде: ");
-        System.out.println("Название: " + getName());
-        System.out.println("Размер: " + getSize());
-        System.out.println("Цена: " + getPrice());
-        System.out.println("Цвет: " + getColor());
+    public void dressMan() {
+        System.out.print("Название: " + getName() + ", ");
+        System.out.print("Размер: " + getSize() + ", ");
+        System.out.print("Цена: " + getPrice() + ", ");
+        System.out.println("Цвет: " + getColor() + ". ");
     }
 
 
-    @Override
-    public void WomenClothes() {
-        System.out.println("Информация о женской одежде: ");
-        System.out.println("Название: " + getName());
-        System.out.println("Размер: " + getSize());
-        System.out.println("Цена: " + getPrice());
-        System.out.println("Цвет: " + getColor());
 
-    }
 }
