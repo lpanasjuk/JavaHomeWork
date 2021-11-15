@@ -1,24 +1,24 @@
 package com.pb.panasjuk.hw7;
 
 public enum Size {
-    XXS("Детский размер", 32),
-    XS("Взрослый размер", 34),
-    S("Взрослый размер",36),
-    M("Взрослый размер",38),
-    L("Взрослый размер",40);
+    XXS("XXS", "Детский размер",32),
+    XS("XS", "Взрослый размер",34),
+    S("S","Взрослый размер",36),
+    M("M","Взрослый размер",38),
+    L("L","Взрослый размер",40);
 
 
+    private String name;
     private String description;
     private int euroSize;
 
 
 //Создать конструктор принимающий на вход description и euroSize
-    Size(String description, int euroSize) {
+    Size(String name, String description, int euroSize) {
+        this.name = name;
         this.description = description;
         this.euroSize = euroSize;
-
     }
-
 
 //геттеры
     public String getDescription() {
@@ -29,13 +29,12 @@ public enum Size {
         return euroSize;
     }
 
+//toString()
     @Override
     public String toString() {
-        return " "
-                + description +
-                ", европейский размер : " + euroSize +
-                ' ';
+        return " " + name +
+                ", описание: " + description +
+                ", европейский размер: " + euroSize +
+                "";
     }
-
-
 }

@@ -6,29 +6,29 @@ public class Atelier {
         //футболка
         Clothes tshirt = new Tshirt();
         tshirt.setName("Футболка");
-        tshirt.setSize(Size.M);//"M"
+        tshirt.setSize(Size.XXS);
         tshirt.setPrice(360);
         tshirt.setColor("Красная");
 
 
         //штаны
         Clothes pants = new Pants();
-        pants.setName("штаны");
-        pants.setSize(Size.XS);//"XS" Size.XS
+        pants.setName("Штаны");
+        pants.setSize(Size.XS);
         pants.setPrice(250);
         pants.setColor("Синие");
 
         //юбка
         Clothes skirt = new Skirt();
-        skirt.setName("юбка");
-        skirt.setSize(Size.S); //"S"
+        skirt.setName("Юбка");
+        skirt.setSize(Size.S);
         skirt.setPrice(500);
         skirt.setColor("Красная");
 
         //галстук
         Clothes tie = new Tie();
-        tie.setName("галстук");
-        tie.setSize(Size.XXS); //"XXS"
+        tie.setName("Галстук");
+        tie.setSize(Size.M);
         tie.setPrice(300);
         tie.setColor("Черный");
 
@@ -39,6 +39,8 @@ public class Atelier {
         dressMan(clothes);
 
     }
+
+
 
 //два статических метода
         public static void dressWomen(Clothes[] clothes){
