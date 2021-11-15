@@ -51,15 +51,5 @@ public abstract class Clothes {
     }
 
 
-    //переопределение метода toString()
 
-    @Override
-    public String toString() {
-        return "Clothes {" +
-                "Тип одежды = '" + name + '\'' +
-                ", размер = " + size +
-                ", цена = " + price +
-                "грн, цвет = '" + color + '\'' +
-                '}';
-    }
 }

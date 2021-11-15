@@ -7,6 +7,7 @@ public enum Size {
     M("Взрослый размер",38),
     L("Взрослый размер",40);
 
+
     private String description;
     private int euroSize;
 
@@ -16,6 +17,25 @@ public enum Size {
         this.description = description;
         this.euroSize = euroSize;
 
-
     }
+
+
+//геттеры
+    public String getDescription() {
+        return description;
+    }
+
+    public int getEuroSize() {
+        return euroSize;
+    }
+
+    @Override
+    public String toString() {
+        return " "
+                + description +
+                ", европейский размер : " + euroSize +
+                ' ';
+    }
+
+
 }
