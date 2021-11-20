@@ -7,28 +7,32 @@ public class Auth {
     private String password;
 
 
+
 //конструктор
     public Auth(String login, String password) {
-      /*  this.login = login;
-        this.password = password;*/
+        this.login = null;
+        this.password = null;
     }
 
-//метод signUp (регистрация на сайте)
+
+
+    //метод signUp (регистрация на сайте)
     public void signUp(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
         if(!Pattern.matches("[a-zA-Z0-9]{5,20}",login)) {
-            throw new WrongLoginException();
+            throw new WrongLoginException("Логин небезопасен");
         } else {
             this.login = login;
             System.out.println("Логин безопасный");
         }
 
         if (!Pattern.matches("\\w{5,}",password)) {
-            throw new WrongPasswordException();
+            throw new WrongPasswordException("Пароль небезопасен");
         } else if (!password.equals(confirmPassword)) {
-            throw new WrongPasswordException();
+            throw new WrongPasswordException("Пароль небезопасен");
         } else {
             this.password = password;
             System.out.println("Пароль надежный");
+            System.out.println("Пользователь зарегистрирован");
         }
 
 
