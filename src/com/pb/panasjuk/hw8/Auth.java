@@ -16,23 +16,22 @@ public class Auth {
 
 
 
-    //метод signUp (регистрация на сайте)
+//метод signUp (регистрация на сайте)
     public void signUp(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
         if(!Pattern.matches("[a-zA-Z0-9]{5,20}",login)) {
-            throw new WrongLoginException("Логин небезопасен");
+            throw new WrongLoginException("Логин небезопасен!");
         } else {
             this.login = login;
-            System.out.println("Логин безопасный");
         }
 
         if (!Pattern.matches("\\w{5,}",password)) {
-            throw new WrongPasswordException("Пароль небезопасен");
+            throw new WrongPasswordException("Пароль небезопасен!");
         } else if (!password.equals(confirmPassword)) {
-            throw new WrongPasswordException("Пароль небезопасен");
+            throw new WrongPasswordException("При повторении пароля допущена ошибка!");
+
         } else {
             this.password = password;
-            System.out.println("Пароль надежный");
-            System.out.println("Пользователь зарегистрирован");
+            System.out.println("Пользователь зарегистрирован!");
         }
 
 
@@ -40,9 +39,11 @@ public class Auth {
     }
 
 //метода signIn (вход на сайт)
-    public void signIn(String login, String password) throws WrongLoginException {
-        if (!login.equals(this.login) && !password.equals(this.password)) {
-            throw new WrongLoginException();
+    public void signIn(String login2, String password2) throws WrongLoginException {
+        if (!login2.equals(login) || !password2.equals(password)) {
+            throw new WrongLoginException("Данные введены неверно");
+        } else {
+            System.out.println("Вход успешно выполнен!");
         }
 
     }
