@@ -54,38 +54,3 @@ public class Auth {
 }
 
 
-
-/*
-
-        if(login.replaceAll("[a-zA-Z0-9]{5,20}")) {
-            System.out.println("Пароль безопасный");
-        } else {
-            throw new WrongLoginException();
-        }
-
-        if (password.replaceAll("\\w{5,}") && password.equals(confirmPassword)) {
-            System.out.println("Логин надежный");
-        } else {
-            throw new WrongPasswordException();
-        }
-
-
-
-
-            public void signUp(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
-        if(!login.replaceAll("[a-zA-Z0-9]{5,20}")) {
-            throw new WrongLoginException();
-        } else {
-            this.login = login;
-            System.out.println("Логин безопасный");
-        }
-
-        if (!password.replaceAll("\\w{5,}")) {
-            throw new WrongPasswordException();
-        } else if (!password.equals(confirmPassword)) {
-            throw new WrongPasswordException();
-        } else {
-            this.password = password;
-            System.out.println("Пароль надежный");
-        }
- */
