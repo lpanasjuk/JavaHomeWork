@@ -6,7 +6,7 @@ public class WrongLoginException extends Exception {
     public WrongLoginException() {
     }
 
-    //конструктор,кот. принимает сообщение и передает его в конструктор класса Exception
+//конструктор,кот. принимает сообщение и передает его в конструктор класса Exception
     public WrongLoginException(String msg) {
         super(msg);
 
