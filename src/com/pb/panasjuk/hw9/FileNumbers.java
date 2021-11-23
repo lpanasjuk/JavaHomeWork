@@ -2,17 +2,15 @@ package com.pb.panasjuk.hw9;
 import java.io.*;
 import java.util.Scanner;
 
-
 public class FileNumbers {
-    public static void main(String[] args) {
 
+//метод createNumbersFile
+    public void createNumbersFile() throws Exception{
 
- //   public static void createNumbersFile() throws Exception{
-
- //Создает Writer с помощью FileWriter
+//Создает Writer с помощью FileWriter
        try (Writer writer = new FileWriter("files/numbers.txt")) {
 
-            //Записываем в файл
+//Записываем в файл
             int[][] array = new int[10][10];
             for (int i=0; i< array.length; i++, System.out.println()){
                 for (int j=0; j<array.length; j++){
@@ -26,13 +24,10 @@ public class FileNumbers {
         } catch (Exception e) {
             System.out.println("Error " + e);
         }
+ }
 
-
-
-   // }
-
-
-      //  public static void createOddNumbersFile() throws IOException {
+//метод createOddNumbersFile
+public void createOddNumbersFile() throws IOException {
             try (Scanner in = new Scanner(new File("files/numbers.txt"))) {
                 PrintWriter pw = new PrintWriter(new File("files/odd-numbers.txt"));
                 System.out.println("Вывод, с учетом замены целых четных чисел на '0':");
@@ -47,8 +42,8 @@ public class FileNumbers {
                             System.out.println(ch + " ");     // Чтоб было видно, что делается
                         pw.println(ch + " ");
                     }
-                    line.close();                             // Не забывать, чтобы не было утечек
-                    pw.println();                             // Строка закончена -- перенос строки в вых. файл
+                    line.close();                             // Закрываем, чтобы не было утечек
+                    pw.println();                             // Строка закончена - перенос строки в вых. файл
                     System.out.println();                     // и на экране
 
                 }
@@ -56,32 +51,6 @@ public class FileNumbers {
             } catch (IOException ioException) {
                 System.out.println("Файл не записан" + ioException);
             }
-     //   }
-
-
-
-
-
-    }
-
+  }
 
 }
-
-
-
-
-/*// Создает массив символов
-        char[] array = new char[];
-
-// Создает читателя с помощью FileReader
-            try (Reader reader = new FileReader("files/numbers.txt")) {
-
-// Читает символы
-                reader.read(array);
-                System.out.println(array);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
- */
