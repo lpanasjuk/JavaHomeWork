@@ -32,11 +32,21 @@ public class NumBox <T extends Number> {
            throw new ArrayIndexOutOfBoundsException();
        } else numbers[index] = num;
 
+
    }
 
-
-
 //- метод int length() возвращает текущее количество элементов.
+       public int length() {
+           int i = 0;
+           for (T n : numbers) {
+               if (n == null) {
+                   break;
+               }
+               i++;
+           }
+           return i;
+       }
+
   /*   public int length() {
         int i=0;
         for (T n: numbers) {
@@ -70,12 +80,12 @@ public class NumBox <T extends Number> {
         return average;  //подсчет среднего арифметического элементов массива
     }
 */
-/*
+
     public double average(){
         double avеrage = (sum()/length());
         return avеrage;
     }
-*/
+
 //- метод double sum() - сумма всех элементов массива.
 /*    public double sum() {
         double sum = 0.0;
@@ -87,14 +97,15 @@ public class NumBox <T extends Number> {
         return sum;
     }
 */
-/*public double sum() {
-    double sum = 0;
+  public double sum() {
+    double sum = 0.0;
     for (T i : numbers) {
         sum += i.doubleValue();
     }
     return sum;
 }
-*/
+
+
 
 //метод T max() - максимальный элемент массива.
   /*  public T max() {
@@ -106,7 +117,7 @@ public class NumBox <T extends Number> {
         return maxValue;
     }
 
-
+*/
     public T max(){
         T maX = numbers[0];
         for(int i = 0; i < numbers.length; i++){
@@ -116,8 +127,7 @@ public class NumBox <T extends Number> {
         }
         return maX;
     }
-*/
-   }
+
 }
 
 

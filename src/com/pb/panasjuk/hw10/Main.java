@@ -19,6 +19,19 @@ public class Main {
         System.out.println("------------------");
 
         NumBox<Double> numbox2 = new NumBox<>(2);
+        try {
+        numbox2.add(0,3.8);
+        numbox2.add(1,1.4);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Массив переполнен! ");
+            e.printStackTrace();
+        }
+        System.out.println(numbox2.get(0));
+        System.out.println(numbox2.get(1));
+        System.out.println("В массиве заполнено элементов - " + numbox2.length());
+        System.out.println("Среднее арифметическое элементов массива - " + numbox2.average());
+        System.out.println("Сумма всех эелементов массива - " + numbox2.sum());
+        System.out.println("Максимальный элемент массива - " + numbox2.max());
 
 
 
