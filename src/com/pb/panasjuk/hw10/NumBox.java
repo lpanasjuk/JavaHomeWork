@@ -27,30 +27,17 @@ public class NumBox <T extends Number> {
 
 
 //метод void add(T num) добавляющий число в массив. В случае если массив полон - выбросить исключение.
+   public void add(int index, T num) throws ArrayIndexOutOfBoundsException {
+       if (index > numbers.length) {
+           throw new ArrayIndexOutOfBoundsException();
+       } else numbers[index] = num;
 
+   }
 
-    public void add(T number) throws Exception {
-        if(this.number >= this.numbers.length){
-            throw new Exception("Array already filled!");
-        }
-        this.numbers[this.number] = number;
-        this.number++;
-    }
-  /*
-public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
-    if(index > numbers.length) { throw new ArrayIndexOutOfBoundsException();
-    } else numbers[index] = num;
-
-*/
-
-//метод T get(int index) возвращающий число по индексу.
-    public T get(int index) {
-        return numbers[index];
-    }
 
 
 //- метод int length() возвращает текущее количество элементов.
-     public int length() {
+  /*   public int length() {
         int i=0;
         for (T n: numbers) {
         if (n==null) {
@@ -62,8 +49,9 @@ public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
             break;
         }
         }
+        return i; //вычислять текущее кол-во элементов
      }
-
+*/
 //- метод double average() - подсчет среднего арифметического среди элементов массива.
    /* public double average() {
         double average;
@@ -82,12 +70,12 @@ public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
         return average;  //подсчет среднего арифметического элементов массива
     }
 */
-
+/*
     public double average(){
         double avеrage = (sum()/length());
         return avеrage;
     }
-
+*/
 //- метод double sum() - сумма всех элементов массива.
 /*    public double sum() {
         double sum = 0.0;
@@ -99,14 +87,14 @@ public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
         return sum;
     }
 */
-public double sum() {
+/*public double sum() {
     double sum = 0;
     for (T i : numbers) {
         sum += i.doubleValue();
     }
     return sum;
 }
-
+*/
 
 //метод T max() - максимальный элемент массива.
   /*  public T max() {
@@ -117,7 +105,7 @@ public double sum() {
         }
         return maxValue;
     }
-    */
+
 
     public T max(){
         T maX = numbers[0];
@@ -128,7 +116,8 @@ public double sum() {
         }
         return maX;
     }
-
+*/
+   }
 }
 
 

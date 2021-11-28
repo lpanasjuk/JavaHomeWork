@@ -3,12 +3,27 @@ package com.pb.panasjuk.hw10;
 public class Main {
     public static void main(String[] args) {
 
-        NumBox<Float> numbox = new NumBox<>(5);
-        numbox.add(0);
-
-
+        NumBox<Float> numbox = new NumBox<>(3);
+        try {
+            numbox.add(0, 5.0F);
+            numbox.add(1, 3.1F);
+            numbox.add(2, 5.7F);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Массив переполнен! ");
+            e.printStackTrace();
         }
+        System.out.println(numbox.get(0));
+        System.out.println(numbox.get(1));
+        System.out.println(numbox.get(2));
+
+        System.out.println("------------------");
+
+        NumBox<Double> numbox2 = new NumBox<>(2);
+
+
+
     }
+}
 
 
 
