@@ -2,7 +2,19 @@ package com.pb.panasjuk.hw10;
 
 public class Main {
     public static void main(String[] args) {
-        NumBox<java.lang.Float> floatNumBox = new NumBox<>(5);
+
+        NumBox<Float> numbox = new NumBox<>(5);
+        numbox.add(0);
+
+
+        }
+    }
+
+
+
+    /*
+
+       NumBox<java.lang.Float> floatNumBox = new NumBox<>(5);
         try {
             floatNumBox.add(0,4.1F);
             floatNumBox.add(1,5.3F);
@@ -27,6 +39,5 @@ public class Main {
                 System.out.println("Шось не те ");
                 return;
             }
-        }
-    }
-}
+            }
+     */

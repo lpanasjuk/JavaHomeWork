@@ -22,27 +22,26 @@ public class NumBox <T extends Number> {
     public void set(int index, T number) {
         this.numbers[index] = number;
     }
-}
+
 
 
 
 //метод void add(T num) добавляющий число в массив. В случае если массив полон - выбросить исключение.
-  /*  public void add(T num) {
-    }
 
 
-    void add(T t) throws Exception {
-        if(this.filled >= this.numbers.length){
+    public void add(T number) throws Exception {
+        if(this.number >= this.numbers.length){
             throw new Exception("Array already filled!");
         }
-        this.numbers[this.filled] = t;
-        this.filled++;
+        this.numbers[this.number] = number;
+        this.number++;
     }
-    */
+  /*
 public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
     if(index > numbers.length) { throw new ArrayIndexOutOfBoundsException();
     } else numbers[index] = num;
 
+*/
 
 //метод T get(int index) возвращающий число по индексу.
     public T get(int index) {
@@ -51,7 +50,19 @@ public double add(int index, T num) throws ArrayIndexOutOfBoundsException {
 
 
 //- метод int length() возвращает текущее количество элементов.
-
+     public int length() {
+        int i=0;
+        for (T n: numbers) {
+        if (n==null) {
+            break;
+        }
+        i++;
+        if (i==numbers.length) {
+            System.out.println("Массив заполен");
+            break;
+        }
+        }
+     }
 
 //- метод double average() - подсчет среднего арифметического среди элементов массива.
    /* public double average() {
