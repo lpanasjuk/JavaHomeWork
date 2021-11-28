@@ -6,8 +6,7 @@ public class NumBox <T extends Number> {
 
 //конструктор принимающий параметр - максимальную длину массива.
     public NumBox(int size) {
-       // numbers = new T[size];
-        numbers = (T[]) new Number[size];  //создаем массив Number и задаем размер массива size и приводим к типу Т
+        numbers = (T[]) new Number[size];  //создаем массив и задаем размер массива size и приводим к типу Т
 
     }
 
@@ -18,12 +17,10 @@ public class NumBox <T extends Number> {
     }
 
 
-//метод set положить элемент в массив, в массив будем ложить тип Т на какой то оперделенный индекс
+//метод set положить элемент в массив, в массив будем ложить тип Т на какой-то оперделенный индекс
     public void set(int index, T number) {
         this.numbers[index] = number;
     }
-
-
 
 
 //метод void add(T num) добавляющий число в массив. В случае если массив полон - выбросить исключение.
@@ -31,8 +28,6 @@ public class NumBox <T extends Number> {
        if (index > numbers.length) {
            throw new ArrayIndexOutOfBoundsException();
        } else numbers[index] = num;
-
-
    }
 
 //- метод int length() возвращает текущее количество элементов.
@@ -47,56 +42,14 @@ public class NumBox <T extends Number> {
            return i;
        }
 
-  /*   public int length() {
-        int i=0;
-        for (T n: numbers) {
-        if (n==null) {
-            break;
-        }
-        i++;
-        if (i==numbers.length) {
-            System.out.println("Массив заполен");
-            break;
-        }
-        }
-        return i; //вычислять текущее кол-во элементов
-     }
-*/
-//- метод double average() - подсчет среднего арифметического среди элементов массива.
-   /* public double average() {
-        double average;
-        double sum = 0;
-        int i = 0;
-        for (T n: numbers) {
-            if (n != null) {
-                Double nNew = (Double) n;
-                double nNum = nNew.doubleValue();
-                sum += nNum;
-                i++;
-            }
-            else break;
-        }
-        average = sum / i;
-        return average;  //подсчет среднего арифметического элементов массива
-    }
-*/
 
+//- метод double average() - подсчет среднего арифметического среди элементов массива.
     public double average(){
         double avеrage = (sum()/length());
         return avеrage;
     }
 
 //- метод double sum() - сумма всех элементов массива.
-/*    public double sum() {
-        double sum = 0.0;
-        for (T i : numbers) {
-            if (i == null) {
-                sum+=0;
-            } else sum+=i.doubleValue();
-        }
-        return sum;
-    }
-*/
   public double sum() {
     double sum = 0.0;
     for (T i : numbers) {
@@ -106,18 +59,7 @@ public class NumBox <T extends Number> {
 }
 
 
-
 //метод T max() - максимальный элемент массива.
-  /*  public T max() {
-        T maxValue = arr.get(0);
-        for (int i = 0; i < arr.size; i++) {
-            if (arr.get(i).doubleValue() > maxValue.doubleValue())
-                maxValue = arr.get(i);
-        }
-        return maxValue;
-    }
-
-*/
     public T max(){
         T maX = numbers[0];
         for(int i = 0; i < numbers.length; i++){
