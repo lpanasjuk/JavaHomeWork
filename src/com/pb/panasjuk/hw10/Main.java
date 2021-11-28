@@ -23,7 +23,10 @@ public class Main {
                 System.out.println(float2);
                 System.out.println(float3);
                 System.out.println(float4);
-            } catch (IndexExeption indexExeption)
+            } catch (IndexExeption e) {
+                System.out.println("Шось не те ");
+                return;
+            }
         }
     }
 }
