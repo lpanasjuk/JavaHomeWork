@@ -3,9 +3,17 @@ package com.pb.panasjuk.hw11;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.time.LocalDateTime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Paths;
 
 public class SerialMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        File file = Paths.get("files/abonent.data").toFile();
+        FileOutputStream outputStream = new FileOutputStream(file);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
  //создаем одного абонента, ч-з конструктор заполняем поля
         Abonent abonent1 = new Abonent("петров", "21.10.2000", "0663534656 0673334455",
@@ -124,5 +132,12 @@ public class SerialMain {
             System.out.println(str);
         }
 
+
+        // сохраняем в файл
+        objectOutputStream.writeObject(list);
+        System.out.println("Файл записан! ");
+
+        //закрываем поток и освобождаем ресурсы
+        objectOutputStream.close();
     }
 }
