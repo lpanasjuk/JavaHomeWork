@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 
 public class Abonent implements Serializable {
     private String fullName;
-    private String dob;
+    private String dateOfBirth;
     private String phone;
     private String address;
     private LocalDateTime redaction;
 
 //конструктор
-    public Abonent(String fullName, String dob, String phone, String address, LocalDateTime redaction) {
+    public Abonent(String fullName, String dateOfBirth, String phone, String address, LocalDateTime redaction) {
         this.fullName = fullName;
-        this.dob = dob;
+        this.dateOfBirth = dateOfBirth;
         this.phone = phone;
         this.address = address;
         this.redaction = redaction;
@@ -31,11 +31,11 @@ public class Abonent implements Serializable {
     }
 
     public String getDob() {
-        return dob;
+        return dateOfBirth;
     }
 
     public void setDob(String dob) {
-        this.dob = dob;
+        this.dateOfBirth = dob;
     }
 
     public String getPhone() {
@@ -60,5 +60,16 @@ public class Abonent implements Serializable {
 
     public void setRedaction(LocalDateTime redaction) {
         this.redaction = redaction;
+    }
+
+    @Override
+    public String toString() {
+        return " " +
+                "ФИО: " + fullName +
+                ", дата рождения: " + dateOfBirth +
+                ", телефон: " + phone +
+                ", адрес: " + address +
+                ", последние изменения: " + redaction +
+                ' ';
     }
 }
