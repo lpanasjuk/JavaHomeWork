@@ -9,17 +9,18 @@ public class SerialMain {
 
  //создаем одного абонента, ч-з конструктор заполняем поля
         Abonent abonent1 = new Abonent("петров", "21.10.2000", "0663534656 0673334455",
-                "Днепр, ул.Барикадная,18/25", LocalDateTime.now());// LocalDateTime.of(2021,12,17,21,57));
-     //  Abonent abonent2 = new Abonent("Иванов И.И.", "15.06.1985", "0993534656",
-          //     "Днепр, ул.Днепровская,15/27", java.time.LocalDateTime.now());
+                "Днепр, ул.Барикадная,18/25", LocalDateTime.now());
+
 
 //создадим список, куда положем первого абонента и еще добавим
         List<Abonent> list = new ArrayList<>();
         list.add(abonent1);
         list.add(new Abonent("иванов", "15.06.1985", "0993534656",
-         "Днепр, ул.Днепровская,15/27", LocalDateTime.now()));// LocalDateTime.of(2021,12,15,15,20,15)));
+         "Днепр, ул.Днепровская,15/27", LocalDateTime.now()));
         list.add(new Abonent("сидоров", "30.02.1987", "0980314225",
-                "Днепр, ул.Кожемяки,2/10", LocalDateTime.now()));// LocalDateTime.of(2021,12,06,12,20,15)));
+                "Днепр, ул.Кожемяки,2/10", LocalDateTime.now()));
+        list.add(new Abonent("шароваров", "13.05.1995", "0935558877",
+                "Днепр, ул.Матросова,2/10", LocalDateTime.now()));
 
 // отображение массива
         System.out.println("Отображение всех абонентов");
@@ -27,21 +28,37 @@ public class SerialMain {
             System.out.println (str);
         }
 
-/*
+        System.out.println(); //перенос
+
+
 // удаление элемента по значению
-          list.remove(abonent1);
-*/
-// отображение массива
+        Scanner sc = new Scanner(System.in);
+        System.out.println ("Введите фамилию для удаления контакта:");
+        String nam = sc.next();
+
+        Iterator<Abonent> iterator = list.iterator();
+        while (iterator.hasNext()) {
+           Abonent item = iterator.next();
+           if(item.getFullName().equals(nam)) {
+               iterator.remove();
+               System.out.println("Успешно удален: " + item);
+           }
+       }
+
+        System.out.println(); //перенос
+
+
+// отображение массива после удаления
         System.out.println("Отображение всех абонентов после удаления");
         for(Abonent str:list) {
             System.out.println (str);
         }
 
+        System.out.println(); //перенос
 
 
 // поиск элементов
-        Scanner sc = new Scanner(System.in);
-        System.out.println ("Пожалуйста, введите фамилию для поиска:");
+        System.out.println ("Введите фамилию для поиска:");
         String name = sc.next();
         for(Abonent str:list) {
             if(str.getFullName().equals(name)) {
@@ -52,85 +69,60 @@ public class SerialMain {
 
         System.out.println();
 
-// вывод всех записей с сортировкой по указанному полю (можно ограничиться двумя на выбор)
- /*       list.sort(Comparator.comparing(p -> p.fullName));
-     //   System.out.println("Сортировка по полю Фамилии " + list);
-        System.out.println("Сортировка по полю ФИО = ");
-        for(Abonent str:list) {
-            System.out.println (str);
-        }
-
-
-//еще одна сортировка по номеру телефона
-        list.sort(Comparator.comparing(p -> p.phone));
-        //   System.out.println("Сортировка по полю Фамилии " + list);
-        System.out.println("Сортировка по номеру телефона = ");
-        for(Abonent str:list) {
-            System.out.println (str);
-        }
-*/
 
 // вывод всех записей с сортировкой по указанному полю (можно ограничиться двумя на выбор)
 //вывод на екран описания возможных действий с указанием команд
-        System.out.println("Выберите вариант сортировки: (name)по фамилии, (phone)по номеру телефона, (full)по фамилии и телефону");
+        System.out.println("Выберите вариант сортировки: (name)по Фамилии, (phone)по номеру телефона, (full)по Фамилии и телефону");
         String act = sc.next();
 
         if(act.equals("name")){
             list.sort(Comparator.comparing(p -> p.fullName));
-            //   System.out.println("Сортировка по полю Фамилии " + list);
-            System.out.println("Сортировка по полю ФИО = ");
+            System.out.println("Сортировка по Фамилии - ");
             for(Abonent str:list) {
                 System.out.println (str);
             }
         } else if(act.equals("phone")){
             list.sort(Comparator.comparing(p -> p.phone));
-            //   System.out.println("Сортировка по полю Фамилии " + list);
-            System.out.println("Сортировка по номеру телефона = ");
+            System.out.println("Сортировка по номеру телефона - ");
             for(Abonent str:list) {
                 System.out.println (str);
             }
         } else {
             list.sort(Comparator.comparing(p -> p.fullName));
-            //   System.out.println("Сортировка по полю Фамилии " + list);
-            System.out.println("Сортировка по полю ФИО = ");
+            System.out.println("Сортировка по Фамилии - ");
             for(Abonent str:list) {
                 System.out.println (str);
             }
 
             list.sort(Comparator.comparing(p -> p.phone));
             //   System.out.println("Сортировка по полю Фамилии " + list);
-            System.out.println("Сортировка по номеру телефона = ");
+            System.out.println("Сортировка по номеру телефона - ");
             for(Abonent str:list) {
                 System.out.println (str);
             }
         }
 
-
-
+        System.out.println(); //перенос
 
 
 
 // редактирование элемента
-            System.out.println ("Пожалуйста, введите фамилию для изменения:");
+            System.out.println ("Введите Фамилию для редактирования:");
             String unam = sc.next();
-            System.out.println ("Введите новую фамилию:");
+            System.out.println ("Введите новую Фамилии:");
             String unum = sc.next();
             for(Abonent str:list) {
                 if(str.getFullName().equals(unam)) {
                     str.setFullName(unum);
-                    System.out.println ("Изменено успешно!");
+                    System.out.println ("Успешно изменено!");
                 }
             }
 
 
-
-
-
-// перебор элементов множества
+// перебор элементов
         for(Abonent str: list) {
-            System.out.print(str + " - ");
+            System.out.println(str);
         }
-        System.out.println();
 
     }
 }
