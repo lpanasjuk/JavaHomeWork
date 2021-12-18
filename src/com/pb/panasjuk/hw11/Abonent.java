@@ -2,11 +2,14 @@ package com.pb.panasjuk.hw11;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class Abonent implements Serializable {
-    private String fullName;
-    private String dateOfBirth;
-    private String phone;
+public class Abonent implements Serializable, Comparable<Abonent> {
+    String fullName;
+    String dateOfBirth;
+    String phone;
     private String address;
     private LocalDateTime redaction;
 
@@ -63,13 +66,36 @@ public class Abonent implements Serializable {
     }
 
     @Override
+    public int compareTo(Abonent o) {
+        return 0;
+    }
+
+
+
+
+    @Override
     public String toString() {
         return " " +
-                "ФИО: " + fullName +
+                "Фамилия: " + fullName +
                 ", дата рождения: " + dateOfBirth +
                 ", телефон: " + phone +
                 ", адрес: " + address +
                 ", последние изменения: " + redaction +
                 ' ';
+/*
+//пробую создать метод для поиска абонента по фамилии
+        public void FindNumberPhone(String fullName) {
+            List<Abonent> result = new ArrayList<>();
+            for(Abonent str:result) {
+                if(str.getFullName().equals(fullName)) {
+                    System.out.println("Найден абонент");
+                    System.out.println(str);
+                }
+            }
+            if (result.size() == 0) System.out.println("абонент с такой фамилией не найден");
+        }
+*/
+
+
     }
 }
