@@ -2,9 +2,7 @@ package com.pb.panasjuk.hw11;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
 
 public class Abonent implements Serializable, Comparable<Abonent> {
     String fullName;
@@ -82,19 +80,7 @@ public class Abonent implements Serializable, Comparable<Abonent> {
                 ", адрес: " + address +
                 ", последние изменения: " + redaction +
                 ' ';
-/*
-//пробую создать метод для поиска абонента по фамилии
-        public void FindNumberPhone(String fullName) {
-            List<Abonent> result = new ArrayList<>();
-            for(Abonent str:result) {
-                if(str.getFullName().equals(fullName)) {
-                    System.out.println("Найден абонент");
-                    System.out.println(str);
-                }
-            }
-            if (result.size() == 0) System.out.println("абонент с такой фамилией не найден");
-        }
-*/
+
 
     }
 }

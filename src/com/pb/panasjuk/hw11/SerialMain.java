@@ -2,7 +2,6 @@ package com.pb.panasjuk.hw11;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.time.LocalDateTime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -103,7 +102,6 @@ public class SerialMain {
             }
 
             list.sort(Comparator.comparing(p -> p.phone));
-            //   System.out.println("Сортировка по полю Фамилии " + list);
             System.out.println("Сортировка по номеру телефона - ");
             for(Abonent str:list) {
                 System.out.println (str);
