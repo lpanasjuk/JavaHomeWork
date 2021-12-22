@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SerialMain {
     public static void main(String[] args) throws Exception {
@@ -22,12 +24,14 @@ public class SerialMain {
 //создадим список, куда положем первого абонента и еще добавим
         List<Abonent> list = new ArrayList<>();
         list.add(abonent1);
-        list.add(new Abonent("иванов", "15.06.1985", "0993534656",
-         "Днепр, ул.Днепровская,15/27", LocalDateTime.now()));
         list.add(new Abonent("сидоров", "30.02.1987", "0980314225",
                 "Днепр, ул.Кожемяки,2/10", LocalDateTime.now()));
+        list.add(new Abonent("иванов", "15.06.1985", "0993534656",
+         "Днепр, ул.Днепровская,15/27", LocalDateTime.now()));
         list.add(new Abonent("шароваров", "13.05.1995", "0935558877",
                 "Днепр, ул.Матросова,2/10", LocalDateTime.now()));
+
+
 
 // отображение массива
         System.out.println("Отображение всех абонентов");
@@ -83,29 +87,25 @@ public class SerialMain {
         String act = sc.next();
 
         if(act.equals("name")){
-            list.sort(Comparator.comparing(p -> p.fullName));
             System.out.println("Сортировка по Фамилии - ");
-            for(Abonent str:list) {
-                System.out.println (str);
-            }
+            list.stream()
+                    .sorted(Comparator.comparing(p -> p.fullName))
+                    .forEach(s->System.out.println(s));
         } else if(act.equals("phone")){
-            list.sort(Comparator.comparing(p -> p.phone));
             System.out.println("Сортировка по номеру телефона - ");
-            for(Abonent str:list) {
-                System.out.println (str);
-            }
+            list.stream()
+                    .sorted(Comparator.comparing(p -> p.phone))
+                    .forEach(s->System.out.println(s));
         } else {
-            list.sort(Comparator.comparing(p -> p.fullName));
             System.out.println("Сортировка по Фамилии - ");
-            for(Abonent str:list) {
-                System.out.println (str);
-            }
+            list.stream()
+                    .sorted(Comparator.comparing(p -> p.fullName))
+                    .forEach(s->System.out.println(s));
 
-            list.sort(Comparator.comparing(p -> p.phone));
             System.out.println("Сортировка по номеру телефона - ");
-            for(Abonent str:list) {
-                System.out.println (str);
-            }
+            list.stream()
+                    .sorted(Comparator.comparing(p -> p.phone))
+                    .forEach(s->System.out.println(s));
         }
 
         System.out.println(); //перенос
@@ -137,5 +137,7 @@ public class SerialMain {
 
         //закрываем поток и освобождаем ресурсы
         objectOutputStream.close();
+
+
     }
 }
