@@ -42,9 +42,7 @@ public class echoServer {
                         pw.println(str);
                     }
                 }
-              /*  System.out.println("Закрываем соединение с клиентом");
-                pw.close();
-                br.close();*/
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             } finally {
