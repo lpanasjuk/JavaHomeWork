@@ -1,65 +1,77 @@
 package com.pb.panasjuk.hw14;
 import java.net.Socket;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.time.LocalDateTime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-/**
- * Класс - сервер, принимает запросы от клиентов и отдает данные
- */
 
 public class echoServer {
-    public static void main(String[] args) {
+    static class Handler implements Runnable {
+        private final Socket socket;
 
-        // Определяем номер порта, который будет "слушать" сервер
-        int port = 1777;
-
-        try {
-            // Открыть серверный сокет (ServerSocket)
-            // Это специальный класс для сетевого взаимодействия с серверной стороны
-            ServerSocket servSocket = new ServerSocket(port);
-
-            // Входим в бесконечный цикл - ожидаем соединения
-            while (true) {
-                System.out.println("Ждем соединения на порту " + port);
-
-                // Получив соединение начинаем работать с сокетом
-                Socket fromClientSocket = servSocket.accept();
-
-                // Работаем с потоками ввода-вывода
-                try (Socket localSocket = fromClientSocket;
-                     PrintWriter pw = new PrintWriter(localSocket.getOutputStream(), true);
-                     BufferedReader br = new BufferedReader(new InputStreamReader(localSocket.getInputStream()))) {
-
-                    // Читаем сообщения от клиента до тех пор пока он не скажет "bye"
-                    String str;
-                    while ((str = br.readLine()) != null) {
-                        // Печатаем сообщение
-                        System.out.println("Сообщение: " + str);
-
-                        // Сравниваем с "bye" и если это так - выходим из цикла
-                        if (str.equals("bye")) {
-                            // Тоже говорим клиенту "bye" и выходим из цикла
-                            pw.println("bye");
-                            break;
-                        } else {
-                            // Посылаем клиенту ответ
-                            str = "Ответ сервера: " + LocalDateTime.now() + " "+ str;
-                            pw.println(str);
-                        }
-                    }
-                } catch (IOException ex) {
-                    ex.printStackTrace(System.out);
-                }
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace(System.out);
+        public Handler(Socket socket) {
+            this.socket = socket;
         }
 
+        @Override
+        public void run() {
+            // Работаем с потоками ввода-вывода
+            try (
+                 PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
+                 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+
+                // Читаем сообщения от клиента до тех пор пока он не скажет "bye"
+                String str;
+                while ((str = br.readLine()) != null) {
+                    // Печатаем сообщение
+                    System.out.println("Сообщение: " + str);
+
+                    // Сравниваем с "bye" и если это так - выходим из цикла
+                    if (str.equals("bye")) {
+                        // Тоже говорим клиенту "bye" и выходим из цикла
+                        pw.println("bye");
+                        break;
+                    } else {
+                        // Посылаем клиенту ответ
+                        str = "Ответ сервера: " + LocalDateTime.now() + " " + str;
+                        pw.println(str);
+                    }
+                }
+              /*  System.out.println("Закрываем соединение с клиентом");
+                pw.close();
+                br.close();*/
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            } finally {
+                try {
+                    socket.close();
+                } catch (Exception ex) {
+                    // ignore
+                }
+            }
     }
 }
+
+
+    public static void main(String[] args) throws Exception {
+        // Определяем номер порта, который будет "слушать" сервер
+        int port = 1777;
+        // Открыть серверный сокет (ServerSocket)
+        // Это специальный класс для сетевого взаимодействия с серверной стороны
+        ServerSocket servSocket = new ServerSocket(port);
+        System.out.println("Сервер запущен на порту : " + port);
+        ExecutorService threadPool = Executors.newFixedThreadPool(10);
+
+        // В цикле ждем запроса клиента
+        while (true) {
+            Socket clientSocket = servSocket.accept();
+            threadPool.submit(new Handler(clientSocket));
+        }
+    }
+}
+

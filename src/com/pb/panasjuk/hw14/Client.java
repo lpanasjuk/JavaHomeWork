@@ -28,11 +28,11 @@ public class Client {
         // Создать поток для записи символов в сокет
         PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
 
-        // Отправляем  строку в сокет
+        // Запрашиваем инфу у пользователя и отправляем в сокет
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите сообщение: ");
         String phrase = sc.nextLine();
-        pw.println(", ваше сообщение: " + phrase);
+        pw.println(" ваше сообщение: " + phrase);
 
         String str;
         // Входим в цикл чтения, что нам ответил сервер
