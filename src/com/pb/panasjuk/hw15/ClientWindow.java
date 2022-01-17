@@ -20,14 +20,7 @@ public class ClientWindow extends JFrame {
     private PrintWriter outMessage;
     // следующие поля отвечают за элементы формы
     private JTextField jtfMessage;
-    private JTextField jtfName;
     private JTextArea jtaTextAreaMessage;
-    // имя клиента
-    private String clientName = "";
-    // получаем имя клиента
-    public String getClientName() {
-        return this.clientName;
-    }
 
     // конструктор
     public ClientWindow() {
@@ -44,13 +37,10 @@ public class ClientWindow extends JFrame {
         setTitle("Client");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jtaTextAreaMessage = new JTextArea();
-        jtaTextAreaMessage.setEditable(false);
-        jtaTextAreaMessage.setLineWrap(true);
+        jtaTextAreaMessage.setEditable(false); // недоступно для редактирования
+        jtaTextAreaMessage.setLineWrap(true); // в длинных строках выполняется перенос
         JScrollPane jsp = new JScrollPane(jtaTextAreaMessage);
         add(jsp, BorderLayout.CENTER);
-        // label, который будет отражать количество клиентов в чате
-        JLabel jlNumberOfClients = new JLabel("Количество клиентов в чате: ");
-        add(jlNumberOfClients, BorderLayout.NORTH);
         JPanel bottomPanel = new JPanel(new BorderLayout());
         add(bottomPanel, BorderLayout.SOUTH);
         JButton jbSendMessage = new JButton("Отправить");
@@ -90,14 +80,10 @@ public class ClientWindow extends JFrame {
                             // считываем его
                             String inMes = inMessage.nextLine();
                             String clientsInChat = "Клиентов в чате = ";
-                            if (inMes.indexOf(clientsInChat) == 0) {
-                                jlNumberOfClients.setText(inMes);
-                            } else {
                                 // выводим сообщение
                                 jtaTextAreaMessage.append(inMes);
                                 // добавляем строку перехода
                                 jtaTextAreaMessage.append("\n");
-                            }
                         }
                     }
                 } catch (Exception e) {

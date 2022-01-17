@@ -33,8 +33,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    // Переопределяем метод run(), который вызывается когда
-    // мы вызываем new Thread(client).start();
+    // Переопределяем метод run(), который вызывается когда вызываем new Thread(client).start();
     @Override
     public void run() {
         try {
@@ -49,8 +48,7 @@ public class ClientHandler implements Runnable {
                 // Если от клиента пришло сообщение
                 if (inMessage.hasNext()) {
                     String clientMessage = inMessage.nextLine();
-                    // если клиент отправляет данное сообщение, то цикл прерывается и
-                    // клиент выходит из чата
+                    // если клиент отправляет данное сообщение, то цикл прерывается и клиент выходит из чата
                     if (clientMessage.equalsIgnoreCase("session end")) {
                         break;
                     }
