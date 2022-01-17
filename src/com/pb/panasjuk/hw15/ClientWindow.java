@@ -1,7 +1,5 @@
 package com.pb.panasjuk.hw15;
 
-
-import javax.accessibility.AccessibleContext;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -59,13 +57,12 @@ public class ClientWindow extends JFrame {
         bottomPanel.add(jbSendMessage, BorderLayout.EAST);
         jtfMessage = new JTextField("Введите ваше сообщение: ");
         bottomPanel.add(jtfMessage, BorderLayout.CENTER);
-     //   jtfName = new JTextField("Введите ваше имя: ");
-    //    bottomPanel.add(jtfName, BorderLayout.WEST);
+
         // обработчик события нажатия кнопки отправки сообщения
         jbSendMessage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // если имя клиента, и сообщение непустые, то отправляем сообщение
+                // если сообщение непустое, то отправляем сообщение
                 if (!jtfMessage.getText().trim().isEmpty()) {
                     sendMsg();
                     // фокус на текстовое поле с сообщением
@@ -73,20 +70,13 @@ public class ClientWindow extends JFrame {
                 }
             }
         });
-        // при фокусе поле сообщения очищается
+        // поле сообщения очищается
         jtfMessage.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
                 jtfMessage.setText("");
             }
         });
-       /* // при фокусе поле имя очищается
-        jtfName.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                jtfName.setText("");
-            }
-        });*/
 
         // в отдельном потоке начинаем работу с сервером
         new Thread(new Runnable() {
@@ -114,30 +104,8 @@ public class ClientWindow extends JFrame {
                 }
             }
         }).start();
-     /*   // добавляем обработчик события закрытия окна клиентского приложения
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                try {
-                    // здесь проверяем, что имя клиента непустое и не равно значению по умолчанию
-                    if (!clientName.isEmpty() && clientName != "Введите ваше имя: ") {
-                        outMessage.println(clientName + " вышел из чата!");
-                    } else {
-                        outMessage.println("Участник вышел из чата, так и не представившись!");
-                    }
-                    // отправляем служебное сообщение, которое является признаком того, что клиент вышел из чата
-                    outMessage.println("##session##end##");
-                    outMessage.flush();
-                    outMessage.close();
-                    inMessage.close();
-                    clientSocket.close();
-                } catch (IOException exc) {
 
-                }
-            }
-        });*/
-        // отображаем форму
+    // отображаем форму
         setVisible(true);
     }
 
